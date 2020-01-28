@@ -12,7 +12,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const DOODLE_API_URL = environment.doodleApiUrl;
+// const DOODLE_API_URL = environment.doodleApiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +25,17 @@ export class DoodleApiService {
 
 // API: GET /users
   getListUtilisateurs(): Observable<Utilisateur[]> {
-    console.log('retour du back : ', this.http.get(DOODLE_API_URL + '/users/'));
+    // console.log('retour du back : ', this.http.get(DOODLE_API_URL + '/users/'));
+    console.log('retour du back : ', this.http.get('/rest'));
+    console.log('retour du back : ', this.http.get('http://locahost:3000/rest/users'));
     // return this.http.get(DOODLE_API_URL + '/users')
     //   .map(response => {
     //     const utilisateurs = response.json());
     //     return utilisateurs.map((utilisateur) => new Utilisateur());
     //   })
     // .catch(this.handleError);
-    return null;
+    // @ts-ignore
+    return this.http.get('/rest');
   }
 
 
