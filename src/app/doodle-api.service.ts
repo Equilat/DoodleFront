@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../environments/environment';
 import {Utilisateur} from './utilisateur';
-import { map } from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,11 +21,15 @@ export class DoodleApiService {
 
 // API: GET /users
   getListUtilisateurs(): Observable<Utilisateur[]> {
-    return this.http.get('/api')
-      .pipe(map(response => {
-        const utilisateurs = response
-        return utilisateurs.map((utilisateur) => new Utilisateur());
-      }));
+    return this.http.get('/api').pipe(
+      map((data: any[]) => data.map((item: any) => new Utilisateur(
+        item.mail,
+        item.nom,
+        item.prenom,
+        null,
+        null
+      ))),
+    );
   }
 
 

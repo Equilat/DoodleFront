@@ -6,6 +6,14 @@ export class Utilisateur {
   private _sondages: string[];
   private _prefsAlimentaires: string[];
 
+  constructor(mail: String, nom: string, prenom: string, sondages: string[], prefsAlimentaires: string[]) {
+    this._mail = mail;
+    this._nom = nom;
+    this._prenom = prenom;
+    this._sondages = sondages;
+    this._prefsAlimentaires = prefsAlimentaires;
+  }
+
   get mail(): String {
     return this._mail;
   }
