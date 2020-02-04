@@ -3,10 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../environments/environment';
 import {Utilisateur} from './utilisateur';
-import {map} from "rxjs/operators";
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/add/observable/throw';
+import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -26,7 +23,7 @@ export class DoodleApiService {
 // API: GET /users
   getListUtilisateurs(): Observable<Utilisateur[]> {
     // console.log('retour du back : ', this.http.get(DOODLE_API_URL + '/users/'));
-    console.log('retour du back : ', this.http.get('/rest'));
+    console.log('retour du back : ', this.http.get('/api'));
     console.log('retour du back : ', this.http.get('http://locahost:3000/rest/users'));
     // return this.http.get(DOODLE_API_URL + '/users')
     //   .map(response => {
@@ -35,7 +32,7 @@ export class DoodleApiService {
     //   })
     // .catch(this.handleError);
     // @ts-ignore
-    return this.http.get('/rest');
+    return this.http.get('/api').pipe(map(res => { res.json(); }));
   }
 
 
