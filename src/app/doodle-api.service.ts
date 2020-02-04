@@ -22,17 +22,11 @@ export class DoodleApiService {
 
 // API: GET /users
   getListUtilisateurs(): Observable<Utilisateur[]> {
-    // console.log('retour du back : ', this.http.get(DOODLE_API_URL + '/users/'));
-    console.log('retour du back : ', this.http.get('/api'));
-    console.log('retour du back : ', this.http.get('http://locahost:3000/rest/users'));
-    // return this.http.get(DOODLE_API_URL + '/users')
-    //   .map(response => {
-    //     const utilisateurs = response.json());
-    //     return utilisateurs.map((utilisateur) => new Utilisateur());
-    //   })
-    // .catch(this.handleError);
-    // @ts-ignore
-    return this.http.get('/api').pipe(map(res => { res.json(); }));
+    return this.http.get('/api')
+      .pipe(map(response => {
+        const utilisateurs = response
+        return utilisateurs.map((utilisateur) => new Utilisateur());
+      }));
   }
 
 
