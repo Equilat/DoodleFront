@@ -1,0 +1,19 @@
+.btn-align-right {
+  float: right;
+}
+.card {
+  margin-left: auto;
+  width: 50rem;
+}
+.vertical-center {
+  min-height: 100%;  /* Fallback */
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+#chk-div-bottom {
+  padding-bottom: 1.25rem;
+}
+
