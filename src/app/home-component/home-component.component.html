@@ -14,19 +14,19 @@
               <textarea class="form-control" id="comment" cols="10" rows="5" placeholder="Écrire un commentaire"></textarea>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="date">
+              <input class="form-check-input" type="checkbox" value="dateForm" id="date" (change)="isChecked($event)">
               <label class="form-check-label" for="date">
                 Proposer des dates
               </label>
             </div>
             <div id="chk-div-bottom" class="form-check">
-              <input class="form-check-input custom-checkbox" type="checkbox" value="" id="lieu">
+              <input class="form-check-input custom-checkbox" type="checkbox" value="siteForm" id="lieu" (change)="isChecked($event)">
               <label class="form-check-label" for="lieu">
                 Proposer des lieux
               </label>
             </div>
-            <div class="btn btn-primary">
-              <a routerLink="/choicesSelection" class="btn-align-right btn btn-primary">Suivant</a>
+            <div class="justify-content-end">
+              <a [routerLink]="routerLinkEnabled ? route : null" class="btn-align-right btn btn-primary">Suivant</a>
             </div>
           </form>
         </div>

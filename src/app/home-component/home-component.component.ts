@@ -12,6 +12,12 @@ export class HomeComponentComponent implements OnInit {
 
   constructor(private doodleApiService: DoodleApiService) { }
 
+  dateFormSelected: boolean;
+  siteFormSelected: boolean;
+  routerLinkEnabled: boolean;
+  route: String;
+
+
   ngOnInit() {
   }
 
@@ -20,4 +26,27 @@ export class HomeComponentComponent implements OnInit {
     console.log('Les utilisateurs récupérés depuis le back : ', this.utilisateurs);
 
   }
+
+  isChecked(event) {
+
+    if (event.target.value === 'dateForm') {
+      this.dateFormSelected = event.target.checked;
+    } else if (event.target.value === 'siteForm') {
+      this.siteFormSelected = event.target.checked;
+    }
+
+    if (this.dateFormSelected && this.siteFormSelected) {
+      this.routerLinkEnabled = true;
+      this.route = '/generateDateSiteForm';
+    } else if (this.siteFormSelected) {
+      this.routerLinkEnabled = true;
+      this.route = '/generateSiteForm';
+    } else if (this.dateFormSelected) {
+      this.routerLinkEnabled = true;
+      this.route = '/generateDateForm';
+    } else {
+      this.routerLinkEnabled = false;
+    }
+  }
+
 }

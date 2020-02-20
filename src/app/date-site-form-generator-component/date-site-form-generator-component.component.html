@@ -1,0 +1,29 @@
+<app-brand-bar-component></app-brand-bar-component>
+<div class="container vertical-center justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="dateSiteFormGenerator">
+            <div formArrayName="propositions">
+              <div class="form-group" *ngFor="let item of propositions.controls; let propositionIndex=index" [formGroupName]="propositionIndex">
+                <label>
+                  Date
+                  <input type="date" class="form-control date-input" formControlName="proposition" id="answer1">
+                  Heure
+                  <input type="time" class="form-control time-input" formControlName="proposition" id="answer2">
+                  Lieu
+                  <input type="text" class="form-control" formControlName="proposition" id="answer3" placeholder="Entrer lieu">
+                </label>
+                <button type="submit" class="btn btn-primary btn-remove" (click)="removeProposition(propositionIndex)" *ngIf="propositionIndex != 0">X</button>
+              </div>
+              <button type="submit" class="btn btn-primary btn-add" (click)="addProposition()">+</button>
+            </div>
+            <a routerLink="/home"><button type="submit" class="btn btn-primary btn-back">Retour</button></a>
+            <button routerLink="/home" type="submit" class="btn btn-primary btn-align-right">Suivant</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
