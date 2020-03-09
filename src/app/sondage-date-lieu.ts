@@ -4,11 +4,12 @@ import {Utilisateur} from './utilisateur';
 import {Reponse} from './reponse';
 import {Reunion} from './reunion';
 
-export class SondageDateLieu extends Sondage{
+export class SondageDateLieu extends Sondage {
 
   private _meetingDates: DateReu[];
   private _places: string[];
 
+  // tslint:disable-next-line:max-line-length
   constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], meetingDates: DateReu[], places: string[]) {
     super(id, webLink, users, meeting, answers);
     this._meetingDates = meetingDates;

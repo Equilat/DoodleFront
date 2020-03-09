@@ -9,7 +9,7 @@ export class SondageDate extends Sondage {
   private _meetingDates: DateReu[];
 
 
-  constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], meetingDates: DateReu) {
+  constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], meetingDates: DateReu[]) {
     super(id, webLink, users, meeting, answers);
     this._meetingDates = meetingDates;
   }
