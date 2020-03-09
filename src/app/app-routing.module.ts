@@ -4,6 +4,7 @@ import {HomeComponentComponent} from './home-component/home-component.component'
 import {SiteFormGeneratorComponentComponent} from './site-form-generator-component/site-form-generator-component.component';
 import {DateFormGeneratorComponentComponent} from './date-form-generator-component/date-form-generator-component.component';
 import {DateSiteFormGeneratorComponentComponent} from './date-site-form-generator-component/date-site-form-generator-component.component';
+import {IdentityFormGeneratorComponent} from './identity-form-generator/identity-form-generator.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'generateSiteForm', component: SiteFormGeneratorComponentComponent},
   { path: 'generateDateForm', component: DateFormGeneratorComponentComponent},
   { path: 'generateDateSiteForm', component: DateSiteFormGeneratorComponentComponent},
+  { path: 'identityFormGenerator', component: IdentityFormGeneratorComponent},
 ];
 
 @NgModule({

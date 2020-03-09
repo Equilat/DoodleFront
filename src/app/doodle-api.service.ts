@@ -65,4 +65,29 @@ export class DoodleApiService {
     return throwError(error);
   }
 
+  public postSurvey(survey: any) {
+    console.log("le post : ", survey);
+    var headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    // survey = new Sondage(1, "google.com", [], null, []);
+
+    alert('The results are:' + JSON.stringify(survey));
+    this.http.post('/api/survey/lieu',
+      JSON.stringify(survey), headers)
+      .subscribe(
+        (val) => {
+          console.log('POST call successful value returned in body',
+            val);
+        },
+        response => {
+          console.log('POST call error', response);
+        },
+        () => {
+          console.log('The POST observable is now completed.');
+        });
+  }
+
 }
