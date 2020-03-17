@@ -26,7 +26,8 @@
               </label>
             </div>
             <div class="justify-content-end">
-              <a [routerLink]="routerLinkEnabled ? route : null" class="btn-align-right btn btn-primary">Suivant</a>
+<!--              <a [routerLink]="routerLinkEnabled ? route : null" class="btn-align-right btn btn-primary">Suivant</a>-->
+              <button type="submit" (click)="nextComponent()">Suivant</button>
             </div>
           </form>
         </div>

@@ -1,0 +1,15 @@
+.btn-align-right {
+  float: right;
+}
+
+.card {
+  margin-left: auto;
+  width: 50rem;
+}
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}

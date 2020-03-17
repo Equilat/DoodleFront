@@ -11,12 +11,12 @@
                   Entrer votre nom
                   <input id="answer1" type="text">
                   Entrer votre mail
-                  <input id="answer2" type="mail">
+                  <input id="answer2" type="mail" required="required">
                 </label>
               </div>
             </div>
             <a routerLink="/home"><button type="submit" class="btn btn-primary btn-back">Retour</button></a>
-            <button routerLink="/home"  (click)="postSurvey()"type="submit" class="btn btn-primary btn-align-right">Créer le sondage</button>
+            <button routerLink="/home"  (click)="postSurvey()" type="submit" class="btn btn-primary btn-align-right">Créer le sondage</button>
           </form>
         </div>
       </div>

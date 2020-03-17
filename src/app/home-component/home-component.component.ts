@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {DoodleApiService} from '../doodle-api.service';
 import {Utilisateur} from '../utilisateur';
+import {Sondage} from '../sondage';
+import {ShareService} from '../share.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-component',
@@ -10,15 +13,18 @@ import {Utilisateur} from '../utilisateur';
 export class HomeComponentComponent implements OnInit {
   private utilisateurs: Utilisateur[];
 
-  constructor(private doodleApiService: DoodleApiService) { }
-
   dateFormSelected: boolean;
   siteFormSelected: boolean;
   routerLinkEnabled: boolean;
   route: String;
+  sondage: Sondage;
 
+  constructor(private router: Router, private doodleApiService: DoodleApiService, private sondageTransfer: ShareService) {
+    this.sondage = new Sondage(null, null, null, null, null);
+  }
 
   ngOnInit() {
+    this.sondageTransfer.getMessage().subscribe(message => this.sondage = message);
   }
 
   getAllUtilisateurs() {
@@ -38,15 +44,24 @@ export class HomeComponentComponent implements OnInit {
     if (this.dateFormSelected && this.siteFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateDateSiteForm';
+      this.sondage.dType = 'dateLieu';
     } else if (this.siteFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateSiteForm';
+      this.sondage.dType = 'lieu';
     } else if (this.dateFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateDateForm';
+      this.sondage.dType = 'date';
     } else {
       this.routerLinkEnabled = false;
     }
   }
-
+  nextComponent() {
+    console.log('choice : ', this.sondage);
+    // this.sondageTransfer.sendMessage('sdfsdfdsfsdfsdfsdf');
+      if (this.routerLinkEnabled) {
+        this.router.navigate([this.route]);
+      }
+  }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {ShareService} from '../share.service';
+import {Sondage} from '../sondage';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-date-form-generator-component',
@@ -8,14 +11,18 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 })
 export class DateFormGeneratorComponentComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private router: Router, private fb: FormBuilder, private sondageTransfer: ShareService) {
+    // this.sondage = new Sondage(null, null, null, null, null);
+  }
 
   dateFormGenerator: FormGroup;
+  // sondage: Sondage;
 
   ngOnInit() {
     this.dateFormGenerator = this.fb.group({
       propositions: this.fb.array([this.fb.group({proposition: ''})])
     });
+    this.sondageTransfer.getMessage().subscribe(message => this.sondage = message);
   }
 
   get propositions() {
@@ -30,6 +37,12 @@ export class DateFormGeneratorComponentComponent implements OnInit {
     if (index !== 0) {
       this.propositions.removeAt(index);
     }
+  }
+
+  nextComponent() {
+    this.sondage.webLink = 'google.com';
+    console.log('choice : ', this.sondage);
+      this.router.navigate(['identityFormGenerator']);
   }
 
 }

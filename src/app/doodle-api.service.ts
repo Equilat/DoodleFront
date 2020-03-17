@@ -42,7 +42,7 @@ export class DoodleApiService {
         item.webLink,
         item.users,
         item.meeting,
-        item.answers
+        item.answers,
       ))),
     );
   }

@@ -5,6 +5,7 @@ import {Reponse} from './reponse';
 export class Sondage {
 
   private _id: Number;
+  private _dType: String;
   private _webLink: string;
   private _users: Utilisateur[];
   private _meeting: Reunion;
@@ -12,6 +13,7 @@ export class Sondage {
 
   constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[]) {
     this._id = id;
+    this._dType = "";
     this._webLink = webLink;
     this._users = users;
     this._meeting = meeting;
@@ -24,6 +26,14 @@ export class Sondage {
 
   set id(value: Number) {
     this._id = value;
+  }
+
+  get dType(): String {
+    return this._dType;
+  }
+
+  set dType(value: String) {
+    this._dType = value;
   }
 
   get webLink(): string {

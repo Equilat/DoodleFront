@@ -18,7 +18,7 @@
               <button type="submit" class="btn btn-primary btn-add" (click)="addProposition()">+</button>
             </div>
             <a routerLink="/home"><button type="submit" class="btn btn-primary btn-back">Retour</button></a>
-            <button routerLink="/identityFormGenerator" type="submit" class="btn btn-primary btn-align-right">Suivant</button>
+            <button (click)="nextComponent()" type="submit" class="btn btn-primary btn-align-right">Suivant</button>
           </form>
         </div>
       </div>
