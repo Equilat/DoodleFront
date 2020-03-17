@@ -43,6 +43,22 @@ export class DoodleApiService {
         item.users,
         item.meeting,
         item.answers,
+        item.dates,
+        item.lieux
+      ))),
+    );
+  }
+
+  getSondage(id: string): Observable<Sondage[]> {
+    return this.http.get('api/survey/' + id).pipe(
+      map((data: any[]) => data.map((item: any) => new Sondage(
+        item.id,
+        item.webLink,
+        item.users,
+        item.meeting,
+        item.answers,
+        item.dates,
+        item.lieux,
       ))),
     );
   }
