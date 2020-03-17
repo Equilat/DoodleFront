@@ -6,20 +6,20 @@ export class Sondage {
 
   private _id: Number;
   private _dType: String;
-  private _webLink: string;
-  private _users: Utilisateur[];
-  private _meeting: Reunion;
-  private _answers: Reponse[];
+  private _lienWeb: string;
+  private _utilisateurs: Utilisateur[];
+  private _reunion: Reunion;
+  private _reponses: Reponse[];
   private _dates: String[];
   private _lieux: String[];
 
-  constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], dates: String[], lieux: String[]) {
+  constructor(id: Number, dType: string, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], dates: String[], lieux: String[]) {
     this._id = id;
-    this._dType = "";
-    this._webLink = webLink;
-    this._users = users;
-    this._meeting = meeting;
-    this._answers = answers;
+   this._dType: dType;
+    this._lienWeb = lienWeb;
+    this._utilisateurs = utilisateurs;
+    this._reunion = reunion;
+    this._reponses = reponses;
     this._dates = dates;
     this._lieux = lieux;
   }
@@ -39,37 +39,36 @@ export class Sondage {
   set dType(value: String) {
     this._dType = value;
   }
-
-  get webLink(): string {
-    return this._webLink;
+  get lienWeb(): string {
+    return this._lienWeb;
   }
 
-  set webLink(value: string) {
-    this._webLink = value;
+  set lienWeb(value: string) {
+    this._lienWeb = value;
   }
 
-  get users(): Utilisateur[] {
-    return this._users;
+  get utilisateurs(): Utilisateur[] {
+    return this._utilisateurs;
   }
 
-  set users(value: Utilisateur[]) {
-    this._users = value;
+  set utilisateurs(value: Utilisateur[]) {
+    this._utilisateurs = value;
   }
 
-  get meeting(): Reunion {
-    return this._meeting;
+  get reunion(): Reunion {
+    return this._reunion;
   }
 
-  set meeting(value: Reunion) {
-    this._meeting = value;
+  set reunion(value: Reunion) {
+    this._reunion = value;
   }
 
-  get answers(): Reponse[] {
-    return this._answers;
+  get reponses(): Reponse[] {
+    return this._reponses;
   }
 
-  set answers(value: Reponse[]) {
-    this._answers = value;
+  set reponses(value: Reponse[]) {
+    this._reponses = value;
   }
 
 

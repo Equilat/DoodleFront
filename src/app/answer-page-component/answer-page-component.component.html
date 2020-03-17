@@ -4,12 +4,10 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <form *ngIf="sondage" [formGroup]="answerFormGenerator">
+          <form [formGroup]="answerFormGenerator">
             <div formArrayName="propositions">
               <div class="form-group" *ngFor="let date of sondage.dates; let lieu of sondage.lieux; let propositionIndex = index" [formGroupName]="propositionIndex">
-                <div id="chk-div-bottom" class="form-check">
-                  <p>{{date}}} {{lieu}}</p>
-                </div>
+                <label>{{date}}} {{lieu}}</label>
               </div>
             </div>
             <a routerLink="/home"><button type="submit" class="btn btn-primary btn-back">Envoyer</button></a>
