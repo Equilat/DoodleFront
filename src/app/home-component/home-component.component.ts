@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DoodleApiService} from '../doodle-api.service';
 import {Utilisateur} from '../utilisateur';
 import {Sondage} from '../sondage';
@@ -11,24 +11,26 @@ import {Router} from '@angular/router';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
-  private utilisateurs: Utilisateur[];
-
   dateFormSelected: boolean;
   siteFormSelected: boolean;
   routerLinkEnabled: boolean;
   route: String;
   sondage: Sondage;
+  private utilisateurs: Utilisateur[];
 
-  constructor(private router: Router, private doodleApiService: DoodleApiService, private sondageTransfer: ShareService) {
-    this.sondage = new Sondage(null, null, null, null, null);
+  constructor(private router: Router, private doodleApiService: DoodleApiService, private shareService: ShareService) {
+    this.sondage = new Sondage(null, null, null, null, null, null, null);
   }
 
   ngOnInit() {
-    this.sondageTransfer.getMessage().subscribe(message => this.sondage = message);
+    this.shareService.currentMessage.subscribe(message => this.sondage = message);
   }
 
   getAllUtilisateurs() {
-    this.doodleApiService.getListUtilisateurs().subscribe(result => { console.log(result);  this.utilisateurs = result; });
+    this.doodleApiService.getListUtilisateurs().subscribe(result => {
+      console.log(result);
+      this.utilisateurs = result;
+    });
     console.log('Les utilisateurs récupérés depuis le back : ', this.utilisateurs);
 
   }
@@ -57,11 +59,11 @@ export class HomeComponentComponent implements OnInit {
       this.routerLinkEnabled = false;
     }
   }
+
   nextComponent() {
-    console.log('choice : ', this.sondage);
-    // this.sondageTransfer.sendMessage('sdfsdfdsfsdfsdfsdf');
-      if (this.routerLinkEnabled) {
-        this.router.navigate([this.route]);
-      }
+    this.shareService.changeMessage(this.sondage);
+    if (this.routerLinkEnabled) {
+      this.router.navigate([this.route]);
+    }
   }
 }

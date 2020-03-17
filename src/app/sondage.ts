@@ -4,18 +4,8 @@ import {Reponse} from './reponse';
 
 export class Sondage {
 
-  private _id: Number;
-  private _dType: String;
-  private _lienWeb: string;
-  private _utilisateurs: Utilisateur[];
-  private _reunion: Reunion;
-  private _reponses: Reponse[];
-  private _dates: String[];
-  private _lieux: String[];
-
-  constructor(id: Number, dType: string, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], dates: String[], lieux: String[]) {
+  constructor(id: Number, lienWeb: string, utilisateurs: Utilisateur[], reunion: Reunion, reponses: Reponse[], dates: String[], lieux: String[]) {
     this._id = id;
-   this._dType: dType;
     this._lienWeb = lienWeb;
     this._utilisateurs = utilisateurs;
     this._reunion = reunion;
@@ -23,6 +13,8 @@ export class Sondage {
     this._dates = dates;
     this._lieux = lieux;
   }
+
+  private _id: Number;
 
   get id(): Number {
     return this._id;
@@ -32,6 +24,8 @@ export class Sondage {
     this._id = value;
   }
 
+  private _dType: String;
+
   get dType(): String {
     return this._dType;
   }
@@ -39,6 +33,9 @@ export class Sondage {
   set dType(value: String) {
     this._dType = value;
   }
+
+  private _lienWeb: string;
+
   get lienWeb(): string {
     return this._lienWeb;
   }
@@ -46,6 +43,8 @@ export class Sondage {
   set lienWeb(value: string) {
     this._lienWeb = value;
   }
+
+  private _utilisateurs: Utilisateur[];
 
   get utilisateurs(): Utilisateur[] {
     return this._utilisateurs;
@@ -55,6 +54,8 @@ export class Sondage {
     this._utilisateurs = value;
   }
 
+  private _reunion: Reunion;
+
   get reunion(): Reunion {
     return this._reunion;
   }
@@ -62,6 +63,8 @@ export class Sondage {
   set reunion(value: Reunion) {
     this._reunion = value;
   }
+
+  private _reponses: Reponse[];
 
   get reponses(): Reponse[] {
     return this._reponses;
@@ -71,6 +74,7 @@ export class Sondage {
     this._reponses = value;
   }
 
+  private _dates: String[];
 
   get dates(): String[] {
     return this._dates;
@@ -79,6 +83,8 @@ export class Sondage {
   set dates(value: String[]) {
     this._dates = value;
   }
+
+  private _lieux: String[];
 
   get lieux(): String[] {
     return this._lieux;

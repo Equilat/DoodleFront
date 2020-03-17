@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {Sondage} from '../sondage';
+import {Router} from '@angular/router';
+import {ShareService} from '../share.service';
 
 
 @Component({
@@ -9,15 +12,18 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 })
 export class DateSiteFormGeneratorComponentComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
-
+  sondage: Sondage;
   dateSiteFormGenerator: FormGroup;
 
+  constructor(private router: Router, private fb: FormBuilder, private shareService: ShareService) {
+    this.sondage = new Sondage(null, null, null, null, null, null, null);
+  }
 
   ngOnInit() {
     this.dateSiteFormGenerator = this.fb.group({
       propositions: this.fb.array([this.fb.group({proposition: ''})])
     });
+    this.shareService.currentMessage.subscribe(message => this.sondage = message);
   }
 
   get propositions() {
@@ -34,4 +40,9 @@ export class DateSiteFormGeneratorComponentComponent implements OnInit {
     }
   }
 
+  nextComponent() {
+    this.sondage.lieux = this.dateSiteFormGenerator.get('propositions').value;
+    this.shareService.changeMessage(this.sondage);
+    this.router.navigate(['identityFormGenerator']);
+  }
 }

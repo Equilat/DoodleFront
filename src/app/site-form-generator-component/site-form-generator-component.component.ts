@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ShareService} from '../share.service';
+import {Sondage} from '../sondage';
 
 @Component({
   selector: 'app-site-form-generator-component',
@@ -8,20 +11,23 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 })
 export class SiteFormGeneratorComponentComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {
+  siteFromGenerator: FormGroup;
+  sondage: Sondage;
+
+  constructor(private router: Router, private fb: FormBuilder, private shareService: ShareService) {
+    this.sondage = new Sondage(null, null, null, null, null, null, null);
   }
 
-  siteFromGenerator: FormGroup;
+  get propositions() {
+    return this.siteFromGenerator.get('propositions') as FormArray;
+  }
 
   ngOnInit() {
 
     this.siteFromGenerator = this.fb.group({
       propositions: this.fb.array([this.fb.group({proposition: ''})])
     });
-  }
-
-  get propositions() {
-    return this.siteFromGenerator.get('propositions') as FormArray;
+    this.shareService.currentMessage.subscribe(message => this.sondage = message);
   }
 
   addProposition() {
@@ -32,6 +38,12 @@ export class SiteFormGeneratorComponentComponent implements OnInit {
     if (index !== 0) {
       this.propositions.removeAt(index);
     }
+  }
+
+  nextComponent() {
+    this.sondage.lieux = this.siteFromGenerator.get('propositions').value;
+    this.shareService.changeMessage(this.sondage);
+    this.router.navigate(['identityFormGenerator']);
   }
 
 }

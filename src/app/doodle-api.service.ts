@@ -82,14 +82,12 @@ export class DoodleApiService {
   }
 
   public postSurvey(survey: any) {
-    console.log("le post : ", survey);
+    console.log('le post : ', survey);
     var headers = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    // survey = new Sondage(1, "google.com", [], null, []);
-
     alert('The results are:' + JSON.stringify(survey));
     this.http.post('/api/survey/lieu',
       JSON.stringify(survey), headers)

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import {ShareService} from '../share.service';
 import {Sondage} from '../sondage';
@@ -11,22 +11,22 @@ import {Router} from '@angular/router';
 })
 export class DateFormGeneratorComponentComponent implements OnInit {
 
-  constructor(private router: Router, private fb: FormBuilder, private sondageTransfer: ShareService) {
-    // this.sondage = new Sondage(null, null, null, null, null);
+  dateFormGenerator: FormGroup;
+  sondage: Sondage;
+
+  constructor(private router: Router, private fb: FormBuilder, private shareService: ShareService) {
+    this.sondage = new Sondage(null, null, null, null, null, null, null);
   }
 
-  dateFormGenerator: FormGroup;
-  // sondage: Sondage;
+  get propositions() {
+    return this.dateFormGenerator.get('propositions') as FormArray;
+  }
 
   ngOnInit() {
     this.dateFormGenerator = this.fb.group({
       propositions: this.fb.array([this.fb.group({proposition: ''})])
     });
-    this.sondageTransfer.getMessage().subscribe(message => this.sondage = message);
-  }
-
-  get propositions() {
-    return this.dateFormGenerator.get('propositions') as FormArray;
+    this.shareService.currentMessage.subscribe(message => this.sondage = message);
   }
 
   addProposition() {
@@ -40,9 +40,9 @@ export class DateFormGeneratorComponentComponent implements OnInit {
   }
 
   nextComponent() {
-    this.sondage.webLink = 'google.com';
-    console.log('choice : ', this.sondage);
-      this.router.navigate(['identityFormGenerator']);
+    this.sondage.dates = this.dateFormGenerator.get('propositions').value;
+    this.shareService.changeMessage(this.sondage);
+    this.router.navigate(['identityFormGenerator']);
   }
 
 }

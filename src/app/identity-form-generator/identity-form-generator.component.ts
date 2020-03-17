@@ -11,15 +11,13 @@ import {Sondage} from '../sondage';
 })
 export class IdentityFormGeneratorComponent implements OnInit {
   identityFormGenerator: FormGroup;
-  sondage: String;
+  sondage: Sondage;
 
-  constructor(private doodleApiService: DoodleApiService, private sondageTransfer: ShareService) {
+  constructor(private doodleApiService: DoodleApiService, private shareService: ShareService) {
   }
 
   ngOnInit() {
-    console.log("At app component");
-    this.sondageTransfer.sendMessage('Hello! From AppComponent !!');
-    this.sondageTransfer.getMessage().subscribe(message => this.sondage = message);
+    this.shareService.currentMessage.subscribe(message => this.sondage = message);
   }
 
   postSurvey() {
@@ -32,9 +30,8 @@ export class IdentityFormGeneratorComponent implements OnInit {
         'new york'
       ]
     };
-    console.log('le sondage, le vrai : ', this.sondage);
-    console.log('le sondage, le vrai : ', this.sondageTransfer.getMessage());
+    console.log('le sondage, le vrai : ', this.shareService.currentMessage);
     console.log('le sondage, le faux ', truc);
-    this.doodleApiService.postSurvey(truc);
+    this.doodleApiService.postSurvey(this.sondage);
   }
 }
