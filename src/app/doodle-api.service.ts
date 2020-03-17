@@ -39,10 +39,10 @@ export class DoodleApiService {
     return this.http.get('/api/survey/all').pipe(
       map((data: any[]) => data.map((item: any) => new Sondage(
         item.id,
-        item.webLink,
-        item.users,
-        item.meeting,
-        item.answers,
+        item.lienWeb,
+        item.utilisateurs,
+        item.reunion,
+        item.reponses,
         item.dates,
         item.lieux
       ))),
@@ -53,12 +53,12 @@ export class DoodleApiService {
     return this.http.get('api/survey/' + id).pipe(
       map((data: any[]) => data.map((item: any) => new Sondage(
         item.id,
-        item.webLink,
-        item.users,
-        item.meeting,
-        item.answers,
+        item.lienWeb,
+        item.utilisateurs,
+        item.reunion,
+        item.reponses,
         item.dates,
-        item.lieux,
+        item.lieux
       ))),
     );
   }

@@ -19,11 +19,13 @@ export class AnswerPageComponentComponent implements OnInit {
   answerFormGenerator: FormGroup;
 
   ngOnInit() {
+    this.answerFormGenerator = this.fb.group({
+      propositions: this.fb.array([this.fb.group({proposition: ''})])
+    });
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
     this.doodleApiService.getSondage(this.id).subscribe(result => { console.log(result); this.sondage = result[0]; });
-    console.log('Le sondage récupéré depuis le back : ', this.sondage);
   }
 
 }
