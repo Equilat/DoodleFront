@@ -1,0 +1,57 @@
+.btn-align-right {
+  float: right;
+}
+.btn-add {
+  background: green;
+  border-color: green;
+  margin-bottom: 1.25rem;
+}
+.btn-add:hover {
+  background: darkgreen;
+  border-color: darkgreen;
+  margin-bottom: 1.25rem;
+}
+.btn-remove {
+  background: red;
+  border-color: red;
+  margin-left: 1.25rem;
+}
+.btn-remove:hover {
+  background: darkred;
+  border-color: darkred;
+  margin-left: 1.25rem;
+}
+.btn-back {
+  background: grey;
+  border-color: grey;
+}
+
+.btn-back:hover {
+  background: dimgray;
+  border-color: dimgray;
+}
+
+.card {
+  margin-left: auto;
+  width: 50rem;
+}
+
+.date-input {
+  width: 20rem;
+}
+.time-input {
+  width: 20rem;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback */
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+#answer1 {
+  margin-bottom: 1rem;
+}
+

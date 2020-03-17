@@ -1,0 +1,21 @@
+<app-brand-bar-component></app-brand-bar-component>
+<div class="container vertical-center justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form *ngIf="sondage" [formGroup]="answerFormGenerator">
+            <div formArrayName="propositions">
+              <div class="form-group" *ngFor="let date of sondage.dates; let lieu of sondage.lieux; let propositionIndex = index" [formGroupName]="propositionIndex">
+                <div id="chk-div-bottom" class="form-check">
+                  <p>{{date}}} {{lieu}}</p>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/home"><button type="submit" class="btn btn-primary btn-back">Envoyer</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

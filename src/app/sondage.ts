@@ -9,13 +9,17 @@ export class Sondage {
   private _users: Utilisateur[];
   private _meeting: Reunion;
   private _answers: Reponse[];
+  private _dates: String[];
+  private _lieux: String[];
 
-  constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[]) {
+  constructor(id: Number, webLink: string, users: Utilisateur[], meeting: Reunion, answers: Reponse[], dates: String[], lieux: String[]) {
     this._id = id;
     this._webLink = webLink;
     this._users = users;
     this._meeting = meeting;
     this._answers = answers;
+    this._dates = dates;
+    this._lieux = lieux;
   }
 
   get id(): Number {
@@ -58,4 +62,20 @@ export class Sondage {
     this._answers = value;
   }
 
+
+  get dates(): String[] {
+    return this._dates;
+  }
+
+  set dates(value: String[]) {
+    this._dates = value;
+  }
+
+  get lieux(): String[] {
+    return this._lieux;
+  }
+
+  set lieux(value: String[]) {
+    this._lieux = value;
+  }
 }
