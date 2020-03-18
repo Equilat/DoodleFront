@@ -21,17 +21,15 @@ export class IdentityFormGeneratorComponent implements OnInit {
   }
 
   postSurvey() {
-    const truc = {
-      'lienWeb': 'www.sondage_lieu.com depuis le front angular !pokvlsdjvlksdjvklsdj!',
-      'dtype': 'lieu',
-      'utilisateurs': null,
-      'reunion': null,
-      'lieux': [
-        'new york'
-      ]
-    };
-    console.log('le sondage, le vrai : ', this.shareService.currentMessage);
-    console.log('le sondage, le faux ', truc);
+    // const truc = {
+    //   'lienWeb': 'www.sondage_lieu.com depuis le front angular !pokvlsdjvlksdjvklsdj!',
+    //   'dtype': 'lieu',
+    //   'utilisateurs': null,
+    //   'reunion': null,
+    //   'lieux': [
+    //     'new york'
+    //   ]
+    // };
     this.doodleApiService.postSurvey(this.sondage);
   }
 }
