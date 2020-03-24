@@ -8,15 +8,19 @@
             <div>
               <div>
                 <label>
-                  Entrer votre nom
-                  <input id="answer1" type="text">
-                  Entrer votre mail
-                  <input id="answer2" type="mail" required="required">
+                  Entrer votre nom *
+                  <input formControlName="nameControl" [(ngModel)]="username" id="answer1" required type="text">
+                  Entrer votre mail *
+                  <input formControlName="mailControl" [(ngModel)]="usermail" id="answer2" required type="mail">
                 </label>
               </div>
             </div>
-            <a routerLink="/da"><button type="submit" class="btn btn-primary btn-back">Retour</button></a>
-            <button routerLink="/home"  (click)="postSurvey()" type="submit" class="btn btn-primary btn-align-right">Créer le sondage</button>
+            <a routerLink="/home">
+              <button class="btn btn-primary btn-back" type="button">Annuler</button>
+            </a>
+            <button (click)="postSurvey()" class="btn btn-primary btn-align-right" [disabled]="!identityFormGenerator.valid" routerLink="/home" type="submit">
+              Créer le sondage
+            </button>
           </form>
         </div>
       </div>

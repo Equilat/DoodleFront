@@ -41,7 +41,7 @@ export class SiteFormGeneratorComponentComponent implements OnInit {
   }
 
   nextComponent() {
-    this.sondage.lieux = this.siteFromGenerator.get('propositions').value;
+    this.sondage.Lieux = this.siteFromGenerator.get('propositions').value;
     this.shareService.changeMessage(this.sondage);
     this.router.navigate(['identityFormGenerator']);
   }

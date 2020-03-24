@@ -40,7 +40,7 @@ export class DateFormGeneratorComponentComponent implements OnInit {
   }
 
   nextComponent() {
-    this.sondage.dates = this.dateFormGenerator.get('propositions').value;
+    this.sondage.DatesReu = this.dateFormGenerator.get('propositions').value;
     this.shareService.changeMessage(this.sondage);
     this.router.navigate(['identityFormGenerator']);
   }

@@ -75,21 +75,15 @@ export class DoodleApiService {
     );
   }
 
-
-  private handleError(error: Response | any) {
-    console.error('ApiService::handleError', error);
-    return throwError(error);
-  }
-
-  public postSurvey(survey: any) {
-    console.log('le post : ', survey);
+  public postSurvey(survey: Sondage) {
+    console.log('le post : ', JSON.stringify(survey));
     var headers = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    alert('The results are:' + JSON.stringify(survey));
-    this.http.post('/api/survey/lieu',
+    var dest = survey.DType;
+    this.http.post(`/api/survey/${dest}`,
       JSON.stringify(survey), headers)
       .subscribe(
         (val) => {
@@ -102,6 +96,11 @@ export class DoodleApiService {
         () => {
           console.log('The POST observable is now completed.');
         });
+  }
+
+  private handleError(error: Response | any) {
+    console.error('ApiService::handleError', error);
+    return throwError(error);
   }
 
 }

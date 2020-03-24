@@ -4,93 +4,86 @@ import {Reponse} from './reponse';
 
 export class Sondage {
 
+  private id: Number;
+  private dtype: String;
+  private lienWeb: string;
+  private utilisateurs: Utilisateur[];
+  private reunion: Reunion;
+  private reponses: Reponse[];
+  private datesReu: String[];
+  private lieux: String[];
+
   constructor(id: Number, lienWeb: string, utilisateurs: Utilisateur[], reunion: Reunion, reponses: Reponse[], dates: String[], lieux: String[]) {
-    this._id = id;
-    this._lienWeb = lienWeb;
-    this._utilisateurs = utilisateurs;
-    this._reunion = reunion;
-    this._reponses = reponses;
-    this._dates = dates;
-    this._lieux = lieux;
+    this.id = id;
+    this.lienWeb = lienWeb;
+    this.utilisateurs = utilisateurs;
+    this.reunion = reunion;
+    this.reponses = reponses;
+    this.datesReu = dates;
+    this.lieux = lieux;
   }
 
-  private _id: Number;
-
-  get id(): Number {
-    return this._id;
+  get Id(): Number {
+    return this.id;
   }
 
-  set id(value: Number) {
-    this._id = value;
+  set Id(value: Number) {
+    this.id = value;
   }
 
-  private _dType: String;
-
-  get dType(): String {
-    return this._dType;
+  get DType(): String {
+    return this.dtype;
   }
 
-  set dType(value: String) {
-    this._dType = value;
+  set DType(value: String) {
+    this.dtype = value;
   }
 
-  private _lienWeb: string;
-
-  get lienWeb(): string {
-    return this._lienWeb;
+  get LienWeb(): string {
+    return this.lienWeb;
   }
 
-  set lienWeb(value: string) {
-    this._lienWeb = value;
+  set LienWeb(value: string) {
+    this.lienWeb = value;
   }
 
-  private _utilisateurs: Utilisateur[];
-
-  get utilisateurs(): Utilisateur[] {
-    return this._utilisateurs;
+  get Utilisateurs(): Utilisateur[] {
+    return this.utilisateurs;
   }
 
-  set utilisateurs(value: Utilisateur[]) {
-    this._utilisateurs = value;
+  set Utilisateurs(value: Utilisateur[]) {
+    this.utilisateurs = value;
   }
 
-  private _reunion: Reunion;
-
-  get reunion(): Reunion {
-    return this._reunion;
+  get Reunion(): Reunion {
+    return this.reunion;
   }
 
-  set reunion(value: Reunion) {
-    this._reunion = value;
+  set Reunion(value: Reunion) {
+    this.reunion = value;
   }
 
-  private _reponses: Reponse[];
-
-  get reponses(): Reponse[] {
-    return this._reponses;
+  get Reponses(): Reponse[] {
+    return this.reponses;
   }
 
-  set reponses(value: Reponse[]) {
-    this._reponses = value;
+  set Reponses(value: Reponse[]) {
+    this.reponses = value;
   }
 
-  private _dates: String[];
-
-  get dates(): String[] {
-    return this._dates;
+  get DatesReu(): String[] {
+    return this.datesReu;
   }
 
-  set dates(value: String[]) {
-    this._dates = value;
+  set DatesReu(value: String[]) {
+    this.datesReu = value;
   }
 
-  private _lieux: String[];
-
-  get lieux(): String[] {
-    return this._lieux;
+  get Lieux(): String[] {
+    return this.lieux;
   }
 
-  set lieux(value: String[]) {
-    this._lieux = value;
+  set Lieux(value: String[]) {
+    this.lieux = value;
   }
 }

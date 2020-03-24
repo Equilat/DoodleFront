@@ -1,56 +1,56 @@
 export class Utilisateur {
 
-  private _mail: String;
-  private _nom: string;
-  private _prenom: string;
-  private _sondages: string[];
-  private _prefsAlimentaires: string[];
+  private mail: String;
+  private nom: string;
+  private prenom: string;
+  private sondages: string[];
+  private prefsAlimentaires: string[];
 
   constructor(mail: String, nom: string, prenom: string, sondages: string[], prefsAlimentaires: string[]) {
-    this._mail = mail;
-    this._nom = nom;
-    this._prenom = prenom;
-    this._sondages = sondages;
-    this._prefsAlimentaires = prefsAlimentaires;
+    this.mail = mail;
+    this.nom = nom;
+    this.prenom = prenom;
+    this.sondages = sondages;
+    this.prefsAlimentaires = prefsAlimentaires;
   }
 
-  get mail(): String {
-    return this._mail;
+  get Mail(): String {
+    return this.mail;
   }
 
-  set mail(value: String) {
-    this._mail = value;
+  set Mail(value: String) {
+    this.mail = value;
   }
 
-  get nom(): string {
-    return this._nom;
+  get Nom(): string {
+    return this.nom;
   }
 
-  set nom(value: string) {
-    this._nom = value;
+  set Nom(value: string) {
+    this.nom = value;
   }
 
-  get prenom(): string {
-    return this._prenom;
+  get Prenom(): string {
+    return this.prenom;
   }
 
-  set prenom(value: string) {
-    this._prenom = value;
+  set Prenom(value: string) {
+    this.prenom = value;
   }
 
-  get sondages(): string[] {
-    return this._sondages;
+  get Pondages(): string[] {
+    return this.sondages;
   }
 
-  set sondages(value: string[]) {
-    this._sondages = value;
+  set Sondages(value: string[]) {
+    this.sondages = value;
   }
 
-  get prefsAlimentaires(): string[] {
-    return this._prefsAlimentaires;
+  get PrefsAlimentaires(): string[] {
+    return this.prefsAlimentaires;
   }
 
-  set prefsAlimentaires(value: string[]) {
-    this._prefsAlimentaires = value;
+  set PrefsAlimentaires(value: string[]) {
+    this.prefsAlimentaires = value;
   }
 }

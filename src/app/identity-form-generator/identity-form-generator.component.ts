@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DoodleApiService} from '../doodle-api.service';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ShareService} from '../share.service';
 import {Sondage} from '../sondage';
+import {Utilisateur} from '../utilisateur';
 
 @Component({
   selector: 'app-identity-form-generator',
@@ -12,8 +13,14 @@ import {Sondage} from '../sondage';
 export class IdentityFormGeneratorComponent implements OnInit {
   identityFormGenerator: FormGroup;
   sondage: Sondage;
+  usermail: string;
+  username: string;
 
   constructor(private doodleApiService: DoodleApiService, private shareService: ShareService) {
+    this.identityFormGenerator = new FormGroup({
+      nameControl: new FormControl(''),
+      mailControl: new FormControl('')
+    });
   }
 
   ngOnInit() {
@@ -21,15 +28,11 @@ export class IdentityFormGeneratorComponent implements OnInit {
   }
 
   postSurvey() {
-    // const truc = {
-    //   'lienWeb': 'www.sondage_lieu.com depuis le front angular !pokvlsdjvlksdjvklsdj!',
-    //   'dtype': 'lieu',
-    //   'utilisateurs': null,
-    //   'reunion': null,
-    //   'lieux': [
-    //     'new york'
-    //   ]
-    // };
+    // let truc = new Sondage(null, null, null, null, null, null , null);
+    // truc.DType = 'dateLieu';
+    const createur = new Utilisateur(this.usermail, this.username,
+      null, null, null);
+    // this.sondage.Utilisateurs = [createur];
     this.doodleApiService.postSurvey(this.sondage);
   }
 }

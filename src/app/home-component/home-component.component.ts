@@ -46,15 +46,15 @@ export class HomeComponentComponent implements OnInit {
     if (this.dateFormSelected && this.siteFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateDateSiteForm';
-      this.sondage.dType = 'dateLieu';
+      this.sondage.DType = 'dateLieu';
     } else if (this.siteFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateSiteForm';
-      this.sondage.dType = 'lieu';
+      this.sondage.DType = 'lieu';
     } else if (this.dateFormSelected) {
       this.routerLinkEnabled = true;
       this.route = '/generateDateForm';
-      this.sondage.dType = 'date';
+      this.sondage.DType = 'date';
     } else {
       this.routerLinkEnabled = false;
     }
