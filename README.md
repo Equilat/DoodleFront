@@ -1,4 +1,14 @@
-# Untitled
+# Doodle Front, Hélène Heinlé et Emile Georget, M1 MIAGE, groupe 1B
+
+
+## Contexte
+
+## Liaison avec l'API 
+Afin de créer, afficher, modifier et supprimer les données de la base de données, le front ent communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front-end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST.
+
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
