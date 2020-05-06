@@ -7,10 +7,10 @@ Cette partie front-end correspond à l'IHM de l'application. ([back end](https:/
 
 
 ## Liaison avec l'API 
-Afin de créer, afficher, modifier et supprimer les données de la base de données, le front end communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front-end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST.
+Afin de créer, afficher, modifier et supprimer les données de la base de données, le front end communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST. Ces requêtes sont envoyées depuis le service "doodle-api.service.ts".
 
 ## Point d'avancement
-PAr manque de temps, nous n'avons pas pu finir la partie front du projet. La partie back reste testable avec des outils comme [Postman](https://www.postman.com/).
+Par manque de temps, nous n'avons pas pu finir la partie front du projet. La partie back reste testable avec des outils comme [Postman](https://www.postman.com/).
 
 
 
