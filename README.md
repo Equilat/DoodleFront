@@ -7,34 +7,35 @@ Cette partie front-end correspond à l'IHM de l'application. ([back end](https:/
 
 
 ## Liaison avec l'API 
-Afin de créer, afficher, modifier et supprimer les données de la base de données, le front ent communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front-end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST.
+Afin de créer, afficher, modifier et supprimer les données de la base de données, le front end communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front-end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST.
+
+## Point d'avancement
+PAr manque de temps, nous n'avons pas pu finir la partie front du projet. La partie back reste testable avec des outils comme [Postman](https://www.postman.com/).
 
 
 
+Ce projet a été généré avec [Angular CLI] (https://github.com/angular/angular-cli) version 8.3.23.
 
+## Serveur de développement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
+Exécutez `ng serve` pour un serveur de développement. Accédez à `http: // localhost: 4200 /`. L'application se rechargera automatiquement si vous modifiez l'un des fichiers source.
 
-## Development server
+## Génération de code
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Exécutez `ng generate composant nom-composant` pour générer un nouveau composant. Vous pouvez également utiliser `ng generate directive | pipe | service | class | guard | interface | enum | module`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Exécutez `ng build` pour construire le projet. Les artefacts de construction seront stockés dans le répertoire `dist /`. Utilisez l'indicateur `--prod` pour une version de production.
 
-## Running unit tests
+## Exécution de tests unitaires
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Exécutez `ng test` pour exécuter les tests unitaires via [Karma] (https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Exécution de tests de bout en bout
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Exécutez `ng e2e` pour exécuter les tests de bout en bout via [Protractor] (http://www.protractortest.org/).
 
-## Further help
+## Aide supplémentaire
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Pour obtenir plus d'aide sur l'Angular CLI, utilisez `ng help` ou allez consulter [Angular CLI README] (https://github.com/angular/angular-cli/blob/master/README.md).
