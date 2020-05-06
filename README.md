@@ -2,6 +2,9 @@
 
 
 ## Contexte
+L'objectif de ce projet était de créer une apllication permettant de réaliser des sondages afin d'organiser des réunions entre plusieurs participants. Ce fonctionnement est inspiré de la plateforme existante "Doodle".
+Cette partie front-end correspond à l'IHM de l'application. ([back end](https://github.com/Equilat/testjpa))
+
 
 ## Liaison avec l'API 
 Afin de créer, afficher, modifier et supprimer les données de la base de données, le front ent communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front-end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST.
