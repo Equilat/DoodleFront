@@ -5,9 +5,18 @@
 L'objectif de ce projet était de créer une apllication permettant de réaliser des sondages afin d'organiser des réunions entre plusieurs participants. Ce fonctionnement est inspiré de la plateforme existante "Doodle".
 Cette partie front-end correspond à l'IHM de l'application. ([back end](https://github.com/Equilat/testjpa))
 
+## Composants 
+Notre interface est composée de plusieurs composants.
+
+La façon d'y accéder est décrite dans le fichier [app-routing.module.ts](https://github.com/Equilat/DoodleFront/blob/master/src/app/app-routing.module.ts). On voit les urls permettant de voir les composants.
+
+Les composants que nous avons créés doivent communiquer entre entre eux pour se passer des informations.
+Pour faire cela, nous avons créé un service https://github.com/Equilat/DoodleFront/blob/master/src/app/share.service.ts. Il contient un attribut Observable. Les deux composants qui communiquent, suivent sont état en "s'inscrivant" à cet attribut. Ainsi, quand le premier composant change la donnée à transmettre, le second obtient cette nouvelle donnée.
 
 ## Liaison avec l'API 
-Afin de créer, afficher, modifier et supprimer les données de la base de données, le front end communique avec le back-end via l'API REST décrite dans cette partie. Ainsi, selon les actions de l'utilisateur, le front end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST. Ces requêtes sont envoyées depuis le service "doodle-api.service.ts".
+Afin de créer, afficher, modifier et supprimer les données de la base de données, le front end communique avec l'API REST décrite dans le [back end](https://github.com/Equilat/testjpa). 
+
+Ainsi, selon les actions de l'utilisateur, le front end va construire des requêtes HTTP ciblant les URLs décrites dans l'API REST. Ces requêtes sont envoyées depuis le service [doodle-api.service.ts](https://github.com/Equilat/DoodleFront/blob/master/src/app/doodle-api.service.ts).
 
 ## Point d'avancement
 Par manque de temps, nous n'avons pas pu finir la partie front du projet. La partie back reste testable avec des outils comme [Postman](https://www.postman.com/).
